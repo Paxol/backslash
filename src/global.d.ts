@@ -62,6 +62,7 @@ declare global {
     icon: string
     label: (query: string) => JSX.Element
     name: string
+    bang?: string
   }
 
   type ResultT = {

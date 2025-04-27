@@ -156,6 +156,7 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'youtube-logo',
     bgColor: '#FF0000',
     color: '#FFFFFF',
+    bang: 'yt',
     getUrl: (query: string) =>
       `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`
   },
@@ -170,6 +171,7 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'magnifying-glass',
     bgColor: '#4285F4',
     color: '#FFFFFF',
+    bang: 'g',
     getUrl: (query: string) => `https://www.google.com/search?q=${encodeURIComponent(query)}`
   },
   {
@@ -183,6 +185,7 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'image-square',
     bgColor: '#4285F4',
     color: '#FFFFFF',
+    bang: 'gi',
     getUrl: (query: string) =>
       `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`
   },
@@ -197,7 +200,22 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'map-pin',
     bgColor: '#4285F4',
     color: '#FFFFFF',
+    bang: 'gm',
     getUrl: (query: string) => `https://www.google.com/maps/search/${encodeURIComponent(query)}`
+  },
+  {
+    name: 'sc-chat-gpt',
+    label: (query: string) => (
+      <>
+        Search {query && <span className="text-zinc-400 italic">{truncateQuery(query)} </span>}
+        on ChatGPT
+      </>
+    ),
+    icon: 'open-ai-logo',
+    bgColor: '#0fa37f',
+    color: '#FFFFFF',
+    bang: 'gpt',
+    getUrl: (query: string) => `https://chatgpt.com/?q=${encodeURIComponent(query)}`
   },
   {
     name: 'sc-wikipedia',
@@ -210,6 +228,7 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'books',
     bgColor: '#000000',
     color: '#FFFFFF',
+    bang: 'w',
     getUrl: (query: string) =>
       `https://fr.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(query)}`
   },
@@ -224,6 +243,7 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'translate',
     bgColor: '#4285F4',
     color: '#FFFFFF',
+    bang: 't',
     getUrl: (query: string) => `https://translate.google.com/?text=${encodeURIComponent(query)}`
   },
   {
@@ -250,6 +270,7 @@ export const SHORTCUTS: ShortcutT[] = [
     icon: 'github-logo',
     bgColor: '#24292e',
     color: '#FFFFFF',
+    bang: 'gh',
     getUrl: (query: string) => `https://github.com/search?q=${encodeURIComponent(query)}`
   },
   {
