@@ -50,6 +50,8 @@ export const getCommands = async () => {
 
   return plugins.flatMap((plugin) => {
     const manifestPath = path.join(currentPluginsDir, plugin, 'manifest.yml')
+    if (!fs.existsSync(manifestPath)) return []
+
     const manifest = yaml.load(fs.readFileSync(manifestPath, 'utf8')) as ManifestT
 
     return manifest.commands.map((command) => ({
