@@ -9,6 +9,7 @@ import { CommandApplications } from '@renderer/components/CommandApplications'
 import { CommandShortcuts } from '@renderer/components/CommandShortcuts'
 import { useScrollToTop } from '@renderer/hooks'
 import { Settings } from '@renderer/components/Settings'
+import { winElectron } from '@renderer/lib/utils'
 
 const App = () => {
   const [selectedCommand, setSelectedCommand] = useState<CommandT | null>(null)
@@ -20,6 +21,11 @@ const App = () => {
   const handleInputKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
       e.preventDefault()
+
+      if (commandSearch == '') {
+        winElectron.hideMainWindow();
+      }
+
       setCommandSearch('')
     }
   }
